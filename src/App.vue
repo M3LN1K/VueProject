@@ -1,47 +1,46 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+<!--  Выводим обьект в тег-->
+  <h3> {{info}} </h3>
+  <p>{{someInfo}}</p>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
+  <button type="button" @click="rewriteTitle()">Изменить Заголовок</button>
+  <br>
+  <br>
+  <button type="button" @mouseenter="rewriteParagraph()">Изменить Параграф</button>
 
-  <main>
-    <TheWelcome />
-  </main>
 </template>
 
+<!--
+Скрипты
+Атербут setup нужен если у меня есть другие
+компоненты
+-->
+<script>
+// Экспорт обьектов из файла
+export default {
+  // Создаем функцию
+  data() {
+    return{
+      info: 'Title!', // Свойство | Значение
+      someInfo: 'Anons of message'
+    }
+  },
+  methods: {
+    rewriteParagraph() {
+      this.someInfo = "Some New Message"
+    },
+    rewriteTitle() {
+      this.info = "Some New"
+    }
+  }
+}
+</script>
+<!--Стили-->
 <style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+  h3{
+    font-weight: lighter;
   }
-
-  .logo {
-    margin: 0 2rem 0 0;
+  p{
+    color: rgb(15, 119, 36);
   }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
 </style>

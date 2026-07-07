@@ -1,4 +1,6 @@
-import './assets/main.css'
+// Основной файл
+// Импорт стилей
+/*import './assets/main.css'*/
 
 import { createApp } from 'vue'
 import App from './App.vue'
